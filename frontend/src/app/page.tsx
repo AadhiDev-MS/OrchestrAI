@@ -58,6 +58,8 @@ export default function Home() {
 
     setIsSearching(true);
     try {
+      setResults([]);
+      setAnswer(null);
       const response = await fetch(`${API_URL}/search/?q=${encodeURIComponent(query)}&top_k=5`);
       if (!response.ok) throw new Error("Search failed");
 
