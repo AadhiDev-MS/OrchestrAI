@@ -60,7 +60,7 @@ export default function Home() {
     try {
       setResults([]);
       setAnswer(null);
-      const response = await fetch(`${API_URL}/search/?q=${encodeURIComponent(query)}&top_k=5`);
+      const response = await fetch(`${API_URL}/search/?q=${encodeURIComponent(query)}&top_k=5&_t=${Date.now()}`);
       if (!response.ok) throw new Error("Search failed");
 
       const data = await response.json();
@@ -128,7 +128,7 @@ export default function Home() {
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.setQuery ? e.target.value : e.target.value)}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Ask anything about your documents..."
               className="w-full h-14 bg-zinc-900 border border-white/10 rounded-xl px-6 text-lg focus:outline-none focus:border-indigo-500/50 transition-all"
             />
