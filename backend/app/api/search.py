@@ -15,6 +15,15 @@ async def search_documents(
     """
     Search ingested documents and synthesize an answer.
     """
+    # Skip search for extremely short or common greeting queries
+    greetings = ["hi", "hello", "hey", "hola"]
+    if len(q) < 3 or q.lower() in greetings:
+        return {
+            "query": q,
+            "answer": "Hello! I am OrchestrAI. Please ask a research-related question or upload a document to get started.",
+            "results": []
+        }
+
     retriever = await get_retriever_service(db)
     results = await retriever.search(q, top_k=top_k)
     
