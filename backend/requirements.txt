@@ -1,0 +1,28 @@
+# API & Core
+fastapi[all]
+uvicorn
+python-dotenv
+pydantic-settings
+
+# AI & Orchestration
+langchain-core
+langchain-google-genai
+google-genai
+langgraph
+tavily-python
+
+# Database & Vector
+sqlalchemy[asyncio]
+asyncpg
+pgvector
+
+# Workers & Cache
+redis
+arq
+
+# PDF & RAG
+pypdf
+tiktoken
+
+# Observability
+langsmith

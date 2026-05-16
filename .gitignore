@@ -1,0 +1,38 @@
+# Environment
+.env
+*.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Docker
+.dockerignore
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# Data/Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/app/rag/backend_error.txt
+backend/app/rag/backend_error_2.txt
+backend/app/rag/backend_error_3.txt
+backend/app/rag/backend_diag.txt
+backend/app/rag/backend_diag_2.txt
+*.pdf
+
+# System
+.DS_Store
+Thumbs.db
+backend_error.txt
+backend_error_2.txt
+backend_error_3.txt
+backend_diag.txt
+backend_diag_2.txt
+search_1.json
+search_2.json
+attention.pdf
