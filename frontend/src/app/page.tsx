@@ -143,40 +143,48 @@ export default function Home() {
         </div>
 
         {/* AI Answer Section */}
-        {(isSearching || answer || results.length > 0) && (
-          <div className="mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="p-8 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/10 rounded-3xl shadow-2xl backdrop-blur-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <div className="w-20 h-20 bg-indigo-500 rounded-full blur-3xl" />
+        {(isSearching || answer) && (
+          <div className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <div className="p-10 bg-gradient-to-br from-indigo-600/20 via-zinc-900 to-black border-2 border-indigo-500/30 rounded-[2.5rem] shadow-[0_0_50px_-12px_rgba(99,102,241,0.5)] backdrop-blur-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8">
+                <div className="w-32 h-32 bg-indigo-500/20 rounded-full blur-[80px] animate-pulse" />
               </div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                  {isSearching ? (
-                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  )}
+              
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-indigo-600/40 rotate-3">
+                    {isSearching ? (
+                      <div className="w-6 h-6 border-3 border-white/20 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-white tracking-tight uppercase">AI Research Intelligence</h3>
+                    <p className="text-xs tracking-[0.2em] text-indigo-400 font-bold uppercase opacity-80">Synthesized Knowledge</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white">AI Synthesis</h3>
-                  <p className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold">
-                    {isSearching ? "OrchestrAI is thinking..." : "OrchestrAI Agent v1.0"}
-                  </p>
-                </div>
+                {!isSearching && (
+                  <div className="px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-tighter">Gemini 3.0 Verified</span>
+                  </div>
+                )}
               </div>
-              <div className="prose prose-invert max-w-none">
+
+              <div className="relative z-10">
                 {isSearching ? (
-                  <div className="space-y-3">
-                    <div className="h-4 bg-white/5 rounded-full w-3/4 animate-pulse" />
-                    <div className="h-4 bg-white/5 rounded-full w-5/6 animate-pulse" />
-                    <div className="h-4 bg-white/5 rounded-full w-2/3 animate-pulse" />
+                  <div className="space-y-4">
+                    <div className="h-5 bg-white/5 rounded-full w-full animate-pulse" />
+                    <div className="h-5 bg-white/5 rounded-full w-[90%] animate-pulse" />
+                    <div className="h-5 bg-white/5 rounded-full w-[95%] animate-pulse" />
+                    <div className="h-5 bg-white/5 rounded-full w-[40%] animate-pulse" />
                   </div>
                 ) : (
-                  <p className="text-zinc-200 leading-relaxed text-lg font-medium whitespace-pre-wrap">
+                  <div className="text-zinc-100 leading-relaxed text-xl font-medium prose prose-invert prose-indigo max-w-none">
                     {answer}
-                  </p>
+                  </div>
                 )}
               </div>
             </div>
