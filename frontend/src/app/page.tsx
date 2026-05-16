@@ -143,7 +143,7 @@ export default function Home() {
         </div>
 
         {/* AI Answer Section */}
-        {results.length > 0 && (
+        {(isSearching || answer || results.length > 0) && (
           <div className="mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="p-8 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/10 rounded-3xl shadow-2xl backdrop-blur-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
@@ -151,19 +151,33 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                  {isSearching ? (
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )}
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">AI Synthesis</h3>
-                  <p className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold">OrchestrAI Agent v1.0</p>
+                  <p className="text-[10px] uppercase tracking-widest text-indigo-400 font-bold">
+                    {isSearching ? "OrchestrAI is thinking..." : "OrchestrAI Agent v1.0"}
+                  </p>
                 </div>
               </div>
               <div className="prose prose-invert max-w-none">
+                {isSearching ? (
+                  <div className="space-y-3">
+                    <div className="h-4 bg-white/5 rounded-full w-3/4 animate-pulse" />
+                    <div className="h-4 bg-white/5 rounded-full w-5/6 animate-pulse" />
+                    <div className="h-4 bg-white/5 rounded-full w-2/3 animate-pulse" />
+                  </div>
+                ) : (
                   <p className="text-zinc-200 leading-relaxed text-lg font-medium whitespace-pre-wrap">
                     {answer}
                   </p>
+                )}
               </div>
             </div>
           </div>
