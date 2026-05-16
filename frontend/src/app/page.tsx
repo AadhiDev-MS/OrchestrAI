@@ -143,7 +143,7 @@ export default function Home() {
         </div>
 
         {/* AI Answer Section */}
-        {(isSearching || answer) && (
+        {(isSearching || (answer && answer.length > 0)) && (
           <div className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             <div className="p-10 bg-gradient-to-br from-indigo-600/20 via-zinc-900 to-black border-2 border-indigo-500/30 rounded-[2.5rem] shadow-[0_0_50px_-12px_rgba(99,102,241,0.5)] backdrop-blur-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8">
