@@ -7,7 +7,7 @@ from google.genai import types
 class ResearchAgent:
     def __init__(self):
         self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-        self.model = "models/gemini-flash-latest" 
+        self.model = "models/gemini-3.1-pro-preview" 
 
     async def synthesize_answer(self, query: str, context_chunks: List[Dict[str, Any]]) -> str:
         """
